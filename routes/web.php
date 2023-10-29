@@ -20,12 +20,33 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/listings/{id}', function ($id) {
+// Route::get('/listings/{id}', function ($id) {
+//     return view('listing', [
+//         'heading' => 'Single Listing',
+//         'listing' => Listing::find($id)
+//     ]);
+// });
+Route::get('/listings/{listing}', function (Listing $listing) {
     return view('listing', [
         'heading' => 'Single Listing',
-        'listing' => Listing::find($id)
+        'listing' => $listing,
     ]);
 });
+
+
+
+// Route::get('/listings/{id}', function ($id) {
+//     $Listing = Listing::find($id);
+
+//     if ($Listing) {
+//         return view('listing', [
+//             'heading' => 'Single Listing',
+//             'listing' => $Listing
+//         ]);
+//     } else {
+//         abort(404);
+//     }
+// });
 
 
 
